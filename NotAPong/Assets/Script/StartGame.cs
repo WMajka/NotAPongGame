@@ -5,6 +5,7 @@ using System.Security.Cryptography;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SocialPlatforms;
 
 public class StartGame : MonoBehaviour
 {
@@ -12,8 +13,8 @@ public class StartGame : MonoBehaviour
     public Transform[] SpawnPoint;
     public Rigidbody2D GetBallRigidbody;
     public float Force = 10.0f;
-    int RandomNumber;
-    
+    public int[] DirectionForBall = { -1, 1};
+    private int RandomNumber;
 
     public void PlayBall(InputAction.CallbackContext context)
     {
@@ -22,7 +23,7 @@ public class StartGame : MonoBehaviour
             RandomNumber = UnityEngine.Random.Range(0, 2);
             GetBall.SetActive(true);
             GetBall.transform.position = SpawnPoint[RandomNumber].position;
-            GetBallRigidbody.AddForce(new Vector2(1.0f * Force, 1.0f * Force), ForceMode2D.Impulse);
+            GetBallRigidbody.AddForce(new Vector2(DirectionForBall[UnityEngine.Random.Range(0,2)]* Force, DirectionForBall[UnityEngine.Random.Range(0,2)]* Force), ForceMode2D.Impulse);
         }
     }
 
