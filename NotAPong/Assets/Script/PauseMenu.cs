@@ -7,41 +7,33 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
 
-    public static bool GameIsPaused = false;
+    private static bool GameIsPaused = false;
     public GameObject PauseMenuUI;
  
-    public void Resume()
-    {
-        PauseMenuUI.SetActive(false);
-        Time.timeScale = 1.0f;
-        GameIsPaused = false;
-    }
-    void Pause()
-    {
-        PauseMenuUI.SetActive(true);
-        Time.timeScale = 0.0f;
-        GameIsPaused = true;
-    }
     public void PauseControl(InputAction.CallbackContext context)
     {
         if (context.started)
         {
-            Debug.Log("Pressed Button");
             if (GameIsPaused)
             {
-                Resume();
+                PauseStatus(false, 1.0f);
             }
             else
             {
-                Pause();
+                PauseStatus(true, 0.0f);
             }
         }
+    }
+    public void PauseStatus(bool isPaused, float TimeScale)
+    {
+        PauseMenuUI.SetActive(isPaused);
+        Time.timeScale = TimeScale;
+        GameIsPaused = isPaused;
     }
 
     public void LoadMenu()
     {
         Time.timeScale = 1.0f;
-        Debug.Log("Menu");
         SceneManager.LoadScene("MainMenu");
     }
     public void ExitGame()

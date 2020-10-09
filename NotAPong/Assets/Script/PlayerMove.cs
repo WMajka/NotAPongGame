@@ -7,11 +7,11 @@ public class PlayerMove : MonoBehaviour
 {
     [SerializeField] private Transform GetPlayerTransform;
     [SerializeField] private PlayerInput GetPlayerInput;
-    [SerializeField] private BasicValues GetBasicValues;
+    [SerializeField] private GameManager GetGameManager;
 
     private void Move()
     {
-        GetPlayerTransform.transform.Translate(new Vector2(0.0f, GetPlayerInput.moveHorizontal * GetBasicValues.PlayerSpeed * Time.deltaTime));
+        GetPlayerTransform.transform.Translate(new Vector2(0.0f, GetPlayerInput.moveHorizontal * GetGameManager.PlayerSpeed * Time.deltaTime));
     }
     private void FixedUpdate()
     {

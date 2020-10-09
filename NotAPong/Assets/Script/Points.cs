@@ -5,25 +5,27 @@ using TMPro;
 
 public class Points : MonoBehaviour
 {
-    public TextMeshProUGUI[] PlayerScoring;
-    public int[] playerPoints; 
+    public TextMeshProUGUI[] PlayerTextScore = new TextMeshProUGUI[2];
+    public int[] PlayerPoints = new int[2]; 
 
     private void Awake()
     {
-        PlayerScoring[0].text = playerPoints[0].ToString();
-        PlayerScoring[1].text = playerPoints[1].ToString();
-
+        UpdateTextScore();
     }
 
     public void AddPoint(int playerNumber)
     {
-        playerPoints[playerNumber-1]++;
+        PlayerPoints[playerNumber-1]++;
     }
 
     private void LateUpdate()
     {
-        PlayerScoring[0].text = playerPoints[0].ToString();
-        PlayerScoring[1].text = playerPoints[1].ToString();
+        UpdateTextScore();
+    }
 
+    private void UpdateTextScore()
+    {
+        PlayerTextScore[0].text = PlayerPoints[0].ToString();
+        PlayerTextScore[1].text = PlayerPoints[1].ToString();
     }
 }

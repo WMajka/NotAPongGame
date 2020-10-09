@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class Bounds : MonoBehaviour
 {
-
     private void LateUpdate()
     {
+        PlayerBounds();
+    }
+
+    private void PlayerBounds()
+    {
         Vector2 viewPos = transform.position;
-        viewPos.y = Mathf.Clamp(viewPos.y, -6.3f,6.3f);
+        viewPos.y = Mathf.Clamp(viewPos.y, -6.3f, 6.3f);
         transform.position = viewPos;
     }
 }

@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography;
-using Unity.Mathematics;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SocialPlatforms;
 
-public class StartGame : MonoBehaviour
+
+public class GameManager : MonoBehaviour
 {
     public GameObject GetBall;
     public Transform[] SpawnPoint;
     public Rigidbody2D GetBallRigidbody;
-    public float Force = 10.0f;
-    public int[] DirectionForBall = { -1, 1};
+    public float PlayerSpeed;
+    private float Force = 10.0f;
+    private int[] DirectionForBall = { -1, 1};
     private int RandomNumber;
 
     public void PlayBall(InputAction.CallbackContext context)
