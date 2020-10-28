@@ -11,7 +11,7 @@ public class PlayerMove : MonoBehaviour
 
     private void Move()
     {
-        GetPlayerTransform.transform.Translate(new Vector2(0.0f, GetPlayerInput.moveHorizontal * GetGameManager.PlayerSpeed * Time.deltaTime));
+        GetPlayerTransform.transform.Translate(new Vector2(0.0f, GetPlayerInput.moveHorizontal * GetGameManager.GetRemixComponents.PlayerSpeed * Time.deltaTime));
     }
     private void FixedUpdate()
     {

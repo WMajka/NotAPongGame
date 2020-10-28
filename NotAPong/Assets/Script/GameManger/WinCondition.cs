@@ -7,6 +7,7 @@ public class WinCondition : MonoBehaviour
     public Points GetPoints;
     public TextMeshProUGUI GetText;
     public GameObject WinScreen;
+    public AudioSource GetAudio;
 
     private void LateUpdate()
     {
@@ -22,11 +23,11 @@ public class WinCondition : MonoBehaviour
         
     }
 
-    public void RestartGame()
+    public void GoBackToMenu()
     {
-        var activeScene = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene(activeScene);
+        GetAudio.Play();
         Time.timeScale = 1.0f;
+        SceneManager.LoadScene("MainMenu");
         WinScreen.SetActive(false);
     }
     

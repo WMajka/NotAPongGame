@@ -11,8 +11,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Pong.unity
     guid: d0477d58b32a11d42beb8945a68170fd
-  - enabled: 1
-    path: Assets/Scenes/AIPong.unity
-    guid: 6a6cf96cf7728854eaf5a4a94c98ba5a
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: af4c2093fbc1b014b94113724f9ecd4b, type: 2}
