@@ -58,11 +58,13 @@ public class RemixComponents : ScriptableObject
                 InverseSpeedPlayer();
                 break;
             case 5:
-
                 UpIsDown();
                 break;
             case 6:
                 CloakPads();
+                break;
+            case 7:
+                ChangeBallSpeed();
                 break;
             }
     }
@@ -107,18 +109,23 @@ public class RemixComponents : ScriptableObject
         GetCamera.transform.Rotate(new Vector3(0.0f, 0.0f, CameraAngles[Random.Range(0, 2)]));
     }
 
+    private void CloakPads()
+    {
+        NameForRule = "Wait, where is my Pad?";
+        GetMaterials[0].SetFloat("_Fade", Random.Range(0.2f, 1.0f));
+        GetMaterials[1].SetFloat("_Fade", Random.Range(0.2f, 1.0f));
+    }
+    private void ChangeBallSpeed()
+    {
+        NameForRule = "So Fasst Ball!";
+        GetBallRigidbody2D.velocity *= Random.Range(0.5f, 1.35f);
+    }
     public IEnumerator ShowText()
     {
         GetRemixText.text = NameForRule;
         GetRemixTextObject.SetActive(true);
         yield return new WaitForSecondsRealtime(1.0f);
         GetRemixTextObject.SetActive(false);
-    }
-    private void CloakPads()
-    {
-        NameForRule = "Wait, where is my Pad?";
-        GetMaterials[0].SetFloat("_Fade", Random.Range(0.2f, 1.0f));
-        GetMaterials[1].SetFloat("_Fade", Random.Range(0.2f, 1.0f));
     }
 
 

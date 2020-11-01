@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8013691018280437467}
   - component: {fileID: 8013691018280437460}
   - component: {fileID: 1672689789}
+  - component: {fileID: 734196538}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -113,7 +114,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.95
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -135,3 +136,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GetPoints: {fileID: 0}
+--- !u!114 &734196538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8013691018280437461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a456594ae357c2b44886adb420e0836d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballRigidbody2D: {fileID: 8013691018280437460}
+  changeDirction: 0

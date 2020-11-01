@@ -23,7 +23,7 @@ public class Points : MonoBehaviour
         SetToWin(playerNumber - 1);
         if (GetStateRemix.isActive)
         {
-            GetGameMixer.GameRemix(Random.Range(0, 7));
+            GetGameMixer.GameRemix(Random.Range(0, 8));
             StartCoroutine(GetGameMixer.ShowText());
         }
     }

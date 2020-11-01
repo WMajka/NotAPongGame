@@ -8,7 +8,7 @@ public class GameManagerRemix : MonoBehaviour
 
     void DoTheRemix()
     {
-        GetRemix.GameRemix(Random.Range(0, 7));
+        GetRemix.GameRemix(Random.Range(1, 8));
         StartCoroutine(GetRemix.ShowText());
     }
 

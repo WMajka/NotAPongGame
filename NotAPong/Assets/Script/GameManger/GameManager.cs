@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
         float DirectionAndForceForBall()
         {
             return GetRemixComponents.DirectionForBall[UnityEngine.Random.Range(0, 2)] * GetRemixComponents.Force;
+            
         }
     }
 }

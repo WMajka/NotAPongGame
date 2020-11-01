@@ -7,7 +7,8 @@ public class PauseMenu : MonoBehaviour
 
     private static bool GameIsPaused = false;
     public GameObject PauseMenuUI;
- 
+    [SerializeField] private State GetStateForPostProccesing;
+
     public void PauseControl(InputAction.CallbackContext context)
     {
         if (context.started)
@@ -37,5 +38,15 @@ public class PauseMenu : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
+    }
+    public void PostprocessingToggle()
+    {
+        GetStateForPostProccesing.isActive = !GetStateForPostProccesing.isActive;
+    }
+    public void ResumeGame()
+    {
+        Time.timeScale = 1.0f;
+        PauseMenuUI.SetActive(false);
+        GameIsPaused = false;
     }
 }

@@ -6,16 +6,21 @@ public class MainGameMenu : MonoBehaviour
 {
 
     [SerializeField] State GetStateForAi;
-    [SerializeField] State RemixMode;
+    [SerializeField] State GetStateRemixMode;
+    [SerializeField] State GetStateForPostProccesing;
+    [SerializeField] TextMeshProUGUI GetPostproccesingText;
     [SerializeField] TextMeshProUGUI GetRemixText;
     [SerializeField] GameObject GetTitleRemixText;
     [SerializeField] AudioSource GetClipAudio;
-    [SerializeField] private string RemixText;
+    [SerializeField] private string RemixString;
+    [SerializeField] private string PostprocessingString;
 
     public void Awake()
     {
-        RemixMode.isActive = false;
-        GetRemixText.text = $"{RemixText} Off";
+        GetStateRemixMode.isActive = false;
+        GetStateForPostProccesing.isActive = true;
+        GetPostproccesingText.text = $"{PostprocessingString} ON";
+        GetRemixText.text = $"{RemixString} Off";
         GetTitleRemixText.SetActive(false);
     }
     public void Start2PlayerGame()
@@ -31,19 +36,32 @@ public class MainGameMenu : MonoBehaviour
         SceneManager.LoadScene("Pong");
         GetStateForAi.isActive = true;
     }
-    public void RemixModeToogle()
+    public void RemixModeToggle()
     {
         PlayAudio();
-        RemixMode.isActive = !RemixMode.isActive;
-        if (RemixMode.isActive)
+        GetStateRemixMode.isActive = !GetStateRemixMode.isActive;
+        if (GetStateRemixMode.isActive)
         {
-            GetRemixText.text = $"{RemixText} On";
+            GetRemixText.text = $"{RemixString} On";
             GetTitleRemixText.SetActive(true);
         }
         else
         {
-            GetRemixText.text = $"{RemixText} Off";
+            GetRemixText.text = $"{RemixString} Off";
             GetTitleRemixText.SetActive(false);
+        }
+    }
+    public void PostprocessingToggle()
+    {
+        PlayAudio();
+        GetStateForPostProccesing.isActive = !GetStateForPostProccesing.isActive;
+        if (GetStateForPostProccesing.isActive)
+        {
+            GetPostproccesingText.text = $"{PostprocessingString} ON";
+        }
+        else
+        {
+            GetPostproccesingText.text = $"{PostprocessingString} OFF";
         }
     }
     public void ClosePong()
