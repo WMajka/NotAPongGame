@@ -6,21 +6,21 @@ public class ControlVector : MonoBehaviour
 
 
     [SerializeField] private Rigidbody2D ballRigidbody2D;
-    public bool changeDirction = false;
+    public bool changeDirection = false;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (Vector2.Angle(ballRigidbody2D.velocity, collision.contacts[0].normal) <= 15.0f)
         {
-            changeDirction = true;
+            changeDirection = true;
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (changeDirction)
+        if (changeDirection)
         {
-            ballRigidbody2D.AddRelativeForce(ballRigidbody2D.position * 10.0f, ForceMode2D.Force);
-            changeDirction = false;
+            ballRigidbody2D.AddRelativeForce(ballRigidbody2D.position * 15.0f, ForceMode2D.Force);
+            changeDirection = false;
         }
     }
 }

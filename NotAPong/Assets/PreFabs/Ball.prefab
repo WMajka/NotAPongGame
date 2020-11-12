@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8013691018280437460}
   - component: {fileID: 1672689789}
   - component: {fileID: 734196538}
+  - component: {fileID: 1858855248}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -149,4 +150,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballRigidbody2D: {fileID: 8013691018280437460}
-  changeDirction: 0
+  changeDirection: 0
+--- !u!114 &1858855248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8013691018280437461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e97e0485094eb54ab1308ac663df864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GetBallRigidbody2D: {fileID: 8013691018280437460}
